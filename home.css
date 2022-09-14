@@ -1,0 +1,35 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 20vh 60vh 20vh;
+    grid-template-areas:    "header header header header"
+                            "imagem imagem imagem imagem"
+                            "logar logar cadastrar cadastrar ";
+}
+
+.header{
+    height: 20vh;
+    background-color: rgb(142, 142, 142);
+    grid-area: header;
+}
+
+.imagem{
+    width: 50vh;
+    height: auto;
+    justify-self:center ;
+    align-self: center;
+    background-color: rgb(159, 24, 24);
+    grid-area: imagem;
+}
+
+.logar{
+    height: 20vh;
+    background-color: rgb(68, 31, 31);
+    grid-area: logar;
+}
+
+.cadastrar{
+    height: 20vh;
+    background-color: rgb(27, 27, 27);
+    grid-area: cadastrar;
+}
