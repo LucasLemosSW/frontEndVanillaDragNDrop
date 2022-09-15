@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../reset.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="login.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="cadastro.css" media="screen" />
     <title>Drag n' Drop</title>
 </head>
 <div class="wrapper">
     <div class="saudacao">
-        <img class="logo img_logo" src="../../assets/dragndroplogo.png" alt="">
-        <h1>Bem vindo!</h1>
-        <p>Faça login para continuar</p>
+        <h1>Criar Conta</h1>
+        <p>Cria uma nova conta</p>
     </div>
     <!-- <div class="formulario"> -->
         <form class="formulario" action="">
             <div>
+                <label for="Nome">Nome:</label>
+                <input id="Nome" type="text">
+
                 <label for="email">Email:</label>
                 <input id="email" type="email">
 
@@ -25,7 +27,7 @@
             </div>
             <div>
                 <button class="logar">Logar</button>
-                <p>Não tem uma conta? <a href="">Criar Conta</a></p>
+                <p>já tem uma conta? <a href="">Logar</a></p>
             </div>
         </form>
     <!-- </div> -->
