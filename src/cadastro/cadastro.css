@@ -1,13 +1,12 @@
-@media screen and (max-width: 800px){
 
-  body{
-    background-color:#0276E8;
-  }
-    .wrapper {
+    .wrapper_cadastro{
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -0.019em;
+        background-color:#0276E8;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 30vh 60vh 10vh;
-        margin: 0px 12px 0px 12px;
+        /* margin: 0px 12px 0px 12px; */
         column-gap: 12px;
         grid-template-areas: 
         "header_1 header_2 header_3 header_4" 
@@ -15,55 +14,63 @@
         "footer_1 footer_2 footer_3 footer_4";
       }
 
-      .saudacao{
+      .saudacao_cadastro{
         grid-area:header_1/header_2/header_1/header_3;
         align-self: end;
         text-align: center;
         color: white;
       }
 
-      .saudacao>h1{
+      .saudacao_cadastro>h1{
         font-size: 24px;
         margin: 20px 0px 10px 0px;
         font-weight: bold;
       }
 
-      .saudacao>p{
+      .saudacao_cadastro>p{
         font-size: 12px;
         font-weight: bold;
       }
 
-      .formulario{
+      .saudacao_cadastro>.message{
+        color: white;
+        text-decoration: line-through;
+        margin: 20px 0px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .formulario_cadastro{
         /* background-color:  rgb(49, 186, 28); */
         grid-area:body_1/body_1/body_1/body_4;
         display: flex;
         flex-direction: column;
-
+        margin: 0px 12px;
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
 
-      .formulario>div{
+      .formulario_cadastro>div{
         display: flex;
         flex-direction: column;
         margin: 20px 0px;
       }
 
-      .formulario>div>label{
+      .formulario_cadastro>div>label{
         font-size: 14px;
         font-weight: bold;
         margin: 20px 0px 10px 0px;
         color: white;
       }
 
-      .formulario>div>input{
+      .formulario_cadastro>div>input{
         height: 36px;
         border-radius: 10px;  
         border: none;    
       }
 
-      .formulario>div>p{
+      .formulario_cadastro>div>p{
         text-align: center;
         color: white;
         margin: 10px 0px 10px 0px;
@@ -78,17 +85,24 @@
         height: auto;
       } 
 
-      .logar{
+      .logar_cadastro{
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -0.019em;
         height: 36px;
         width: 100%;
         align-self: center;
         border-radius: 10px;
         background-color: #033FFF;
+        cursor: pointer;
         color: white;
+        text-align: center;
         font-size: 12px;
         border: none;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-
+    .formulario_cadastro>div>p>a{
+      text-decoration: none;
     }
+
+    /* } */

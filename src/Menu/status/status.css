@@ -1,0 +1,173 @@
+/* @media screen and (max-width: 800px){ */
+  
+  body{
+    background-color:#F5E615;
+  }
+
+  .wrapper_menus {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.019em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10vh 10vh 10vh 70vh;
+    /* margin: 0px 12px 0px 12px;  */
+    column-gap: 12px;
+    grid-template-areas: 
+    "header_1 header_2 header_3 header_4" 
+    "vazio_1 vazio_2 vazio_3 vazio_4" 
+    "aba_1 aba_2 aba_3 aba_4"
+    "body_1 body_2 body_3 body_4";
+  }
+
+  .logo{
+    /* background-color:  #444; */
+    justify-self: center;
+    align-self: center;
+    grid-area:header_1/header_1/header_1/header_1;
+  } 
+
+  .img_logo{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  } 
+
+  .cabecalho{
+    background-color:#0276E8;
+    grid-area:header_1/header_1/header_1/header_4;
+  }
+
+  .sair{
+    cursor: pointer;
+    justify-self: center;
+    grid-area:header_1/header_4/header_1/header_4;
+  }
+
+  .boasVindas{
+    color: white;
+    font-size: 16px;
+    justify-self: end;
+    align-self: center;
+    grid-area:header_1/header_2/header_1/header_3;
+  }
+
+  .abas{
+    grid-area:aba_1/aba_1/aba_1/aba_4;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .abas>.aba{
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.019em;
+    background-color: #0FC5FF;
+    border-radius: 30px 0px 0px 0px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 16px;
+    width: 33.33%;
+  }
+
+  .abas>.aba_clicada{
+    background-color: #0276E8;
+  }
+
+  .corpo{
+    background-color: #0276E8;
+    grid-area:body_1/body_1/body_1/body_4;
+    padding: 0px 0px 0px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 20% 40% 40%;
+    grid-template-areas: 
+    "header_1 header_2 header_3 header_4" 
+    "img_1 img_2 img_3 img_4" 
+    "body_1 body_2 body_3 body_4";
+  }
+
+  .corpo>h1{
+    align-self:center;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    grid-area:header_2/header_2/header_2/header_3;
+  }
+
+  .heroi{
+    grid-area:img_2/img_2/img_2/img_4;
+  }
+
+  .corpo>.dados{
+    background-color: #033FFF;
+    grid-area:body_1/body_1/body_1/body_4;
+    margin: 0px 0px 0px 12px;
+    border-radius: 30px 0px 0px 0px;
+    height: 100%;
+    margin: 0em;
+    overflow-y: auto;
+  }
+
+  .botao_padrao{
+    height: 36px;
+    width: 80%;
+    max-width: 150px;
+    align-self: center;
+    border-radius: 10px;
+    background-color: #033FFF;
+    color: white;
+    font-size: 12px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .dados>ul>li:first-child{
+    margin: 30px 0px 0px 0px;
+  }
+
+  .dados>ul>li{
+    background-color: white;
+    border-radius: 40px 0px 0px 0px;
+    margin: 10px 0px;
+    padding: 3px;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .dados>ul>li>div{
+    height: 60%;
+    width: 50px;
+  }
+
+  .dados>ul>li>div>h1{
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0276E8;
+  }
+
+/* } */
+
+@media screen and (min-width: 800px){
+  
+  .corpo>.dados{
+    /* background-color: #03ff03; */
+    grid-area:body_1/body_3/body_1/body_4;
+
+  }
+
+  .heroi{
+    grid-area:img_1/img_2/body_2/body_2;
+  }
+
+  .abas>.aba{
+    font-size: 24px;
+  }
+
+}
