@@ -68,8 +68,9 @@ function Login(props){
 
         return(
             <div className="wrapper_login">
+                <div className="cabecalho_login"></div>
                 <div className="saudacao_login">
-                    <img className="logo img_logo" onClick={()=>navigate("/")} src={require('../assets/dragndroplogo.png')} alt=""/>
+                    <img className="logo_login img_logo" onClick={()=>navigate("/")} src={require('../assets/dragndroplogo.png')} alt=""/>
                     <h1>Bem vindo!</h1>
                     <p>Faça login para continuar</p>
                     <p>{mensagedois}</p>
