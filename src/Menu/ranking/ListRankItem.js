@@ -10,10 +10,6 @@ const ListRankItem = ({ position,name,stars }) => {
             <img className="logo img_logo" src={require('../../assets/estrela.png')} alt=""/>
         </div>
     </li> 
-    // <li className="Item-container">
-    //   <div><h1>{estrelas}</h1></div>
-    //     <img className="logo img_logo" src={require('../../assets/money.png')} alt=""/>
-    // </li>
   );
 };
 

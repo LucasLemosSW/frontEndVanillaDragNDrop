@@ -13,7 +13,6 @@ function Login(props){
     function escreveMsg(){
         if(location.state!=null){
             setMensagedois(location.state.mensagem);
-            // console.log(location.state.mensagem);
         }
     }
 
@@ -21,7 +20,6 @@ function Login(props){
         escreveMsg, // <- function that will run on every dependency update
         [] // <-- empty dependency array
     )
-        // setMensage(location.state.mensagem);
 
     const logar= async (e)=>{
 
@@ -58,7 +56,6 @@ function Login(props){
             else {
                 if(response.data.status==="error"){setMensage(response.data.data);}
                     console.log(response.data);
-                // navigate("/");
             }  
             }).catch(function (error) {
             console.log(error);

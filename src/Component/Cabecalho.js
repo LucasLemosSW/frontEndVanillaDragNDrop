@@ -1,8 +1,16 @@
 import React from 'react';
 import './Cabecalho.css';
-
+import '../Menu/status/status';
+import {useNavigate} from 'react-router-dom'
+import './Cabecalho.css'
 
 const Cabecalho = ({ name }) => {
+    const navigate = useNavigate();
+
+    function sair(){
+        localStorage.removeItem('tokenDragnDrop');
+        navigate("/")
+    }
 
     return(
         <div className="cabecalho">

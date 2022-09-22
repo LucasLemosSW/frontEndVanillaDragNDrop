@@ -74,7 +74,8 @@
     background-color: #0276E8;
   }
 
-  .corpo{
+  .corpo_status{
+    
     background-color: #0276E8;
     grid-area:body_1/body_1/body_1/body_4;
     padding: 0px 0px 0px 12px;
@@ -85,9 +86,10 @@
     "header_1 header_2 header_3 header_4" 
     "img_1 img_2 img_3 img_4" 
     "body_1 body_2 body_3 body_4";
+
   }
 
-  .corpo>h1{
+  .corpo_status>h1{
     align-self:center;
     text-align: center;
     font-size: 40px;
@@ -100,7 +102,7 @@
     grid-area:img_2/img_2/img_2/img_4;
   }
 
-  .corpo>.dados{
+  .corpo_status>.dados{
     background-color: #033FFF;
     grid-area:body_1/body_1/body_1/body_4;
     margin: 0px 0px 0px 12px;
@@ -152,11 +154,15 @@
     color: #0276E8;
   }
 
+  .esconde{
+    display: none;
+  }
+
 /* } */
 
 @media screen and (min-width: 800px){
   
-  .corpo>.dados{
+  .corpo_status>.dados{
     /* background-color: #03ff03; */
     grid-area:body_1/body_3/body_1/body_4;
 

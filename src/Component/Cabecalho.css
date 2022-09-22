@@ -1,0 +1,22 @@
+.cabecalho{
+    background-color:#0276E8;
+    /* grid-area:header_1/header_1/header_1/header_4; */
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+
+  .sair{
+    cursor: pointer;
+    justify-self: center;
+    margin: 0px 20px;
+    grid-area:header_1/header_4/header_1/header_4;
+  }
+
+  .boasVindas{
+    color: white;
+    font-size: 16px;
+    justify-self: end;
+    align-self: center;
+    grid-area:header_1/header_2/header_1/header_3;
+  }

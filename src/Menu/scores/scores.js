@@ -3,8 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import './scores.css';
 import ListItem from './ListItem';
-
-
+import Cabecalho from '../../Component/Cabecalho';
 
 function Scores(){
 
@@ -37,8 +36,6 @@ function Scores(){
             });
         }
 
-    
-
     function sair(){
         localStorage.removeItem('tokenDragnDrop');
         navigate("/")
@@ -46,8 +43,10 @@ function Scores(){
 
     return(
         <div className="wrapper_menus">
-            <div className="cabecalho"></div>
-            <button className="logar sair" onClick={sair}>Sair</button>
+            <Cabecalho name={"name"}>
+            </Cabecalho>
+            {/* <div className="cabecalho"></div>
+            <button className="logar sair" onClick={sair}>Sair</button> */}
             <div className="abas">
                 <button className="aba" onClick={()=>navigate("/menus/status")}>Status</button>
                 <button className="aba_clicada aba" onClick={()=>navigate("/menus/scores")}>Scores</button>

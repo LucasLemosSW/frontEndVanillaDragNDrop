@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import ListRankItem from './ListRankItem'
 import axios from 'axios';
 import './ranking.css';
-
+import Cabecalho from '../../Component/Cabecalho';
 
 function Ranking(){
     const navigate = useNavigate();
@@ -42,32 +42,34 @@ function Ranking(){
 
     return(
         <div className="wrapper_menus">
-        <div className="cabecalho"></div>
-        <button className="logar sair" onClick={sair}>Sair</button>
-        <div className="abas">
-            <button className="aba" onClick={()=>navigate("/menus/status")}>Status</button>
-            <button className="aba" onClick={()=>navigate("/menus/scores")}>Scores</button>
-            <button className="aba_clicada aba" onClick={()=>navigate("/menus/ranking")}>Ranking</button>
-        </div>
-        <div className="corpo_ranking">
-            <h1>Ranking</h1>
-            <button className="logar sair" onClick={atualizaRanking}>Refresh</button>
-            <div className="dados_Ranking">
-                <ul>
-                    {
-                    ranking.map(({id,position,name,stars}) => (
-                        <ListRankItem 
-                        key={id}
-                        position={id+1}
-                        name={name}
-                        stars={stars}
-                        />
-                        ))
-                    }
-                </ul>
+            <Cabecalho name={"name"}>
+            </Cabecalho>
+        {/* <div className="cabecalho"></div>
+        <button className="logar sair" onClick={sair}>Sair</button> */}
+            <div className="abas">
+                <button className="aba" onClick={()=>navigate("/menus/status")}>Status</button>
+                <button className="aba" onClick={()=>navigate("/menus/scores")}>Scores</button>
+                <button className="aba_clicada aba" onClick={()=>navigate("/menus/ranking")}>Ranking</button>
+            </div>
+            <div className="corpo_ranking">
+                <h1>Ranking</h1>
+                <button className="logar sair" onClick={atualizaRanking}>Refresh</button>
+                <div className="dados_Ranking">
+                    <ul>
+                        {
+                        ranking.map(({id,position,name,stars}) => (
+                            <ListRankItem 
+                            key={id}
+                            position={id+1}
+                            name={name}
+                            stars={stars}
+                            />
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     )
 }
 
