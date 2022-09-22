@@ -100,8 +100,7 @@ function Status(){
         navigate("/")
     }
 
-    function showHide(){
-        
+    function showStatus(){     
         document.getElementById("status").classList.add("corpo_status");   
         document.getElementById("status").classList.remove("esconde"); 
 
@@ -109,29 +108,10 @@ function Status(){
         document.getElementById("scores").classList.add("esconde");
         document.getElementById("ranking").classList.remove("corpo_ranking");
         document.getElementById("ranking").classList.add("esconde");
-
-        document.getElementById("aba_status").classList.add("aba_clicada");   
-        document.getElementById("aba_scores").classList.remove("aba_clicada");
-        document.getElementById("aba_ranking").classList.remove("aba_clicada");
+        showHideAba("aba_status","aba_scores","aba_ranking");
     }
 
-    function showStatus(){
-        
-        document.getElementById("status").classList.add("corpo_status");   
-        document.getElementById("status").classList.remove("esconde"); 
-
-        document.getElementById("scores").classList.remove("corpo_scores");
-        document.getElementById("scores").classList.add("esconde");
-        document.getElementById("ranking").classList.remove("corpo_ranking");
-        document.getElementById("ranking").classList.add("esconde");
-
-        document.getElementById("aba_status").classList.add("aba_clicada");   
-        document.getElementById("aba_scores").classList.remove("aba_clicada");
-        document.getElementById("aba_ranking").classList.remove("aba_clicada");
-    }
-
-    function showScores(){
-        
+    function showScores(){    
         document.getElementById("scores").classList.add("corpo_scores");
         document.getElementById("scores").classList.remove("esconde");
 
@@ -139,14 +119,10 @@ function Status(){
         document.getElementById("status").classList.add("esconde");
         document.getElementById("ranking").classList.remove("corpo_ranking");
         document.getElementById("ranking").classList.add("esconde");
-
-        document.getElementById("aba_scores").classList.add("aba_clicada");   
-        document.getElementById("aba_status").classList.remove("aba_clicada");
-        document.getElementById("aba_ranking").classList.remove("aba_clicada");
+        showHideAba("aba_scores","aba_status","aba_ranking");
     }
 
     function showRanking(){
-        
         document.getElementById("ranking").classList.add("corpo_ranking");
         document.getElementById("ranking").classList.remove("esconde");
 
@@ -154,22 +130,20 @@ function Status(){
         document.getElementById("scores").classList.add("esconde");
         document.getElementById("status").classList.remove("corpo_status");
         document.getElementById("status").classList.add("esconde");
+        showHideAba("aba_ranking","aba_status","aba_scores");
+    }
 
-        document.getElementById("aba_ranking").classList.add("aba_clicada");   
-        document.getElementById("aba_status").classList.remove("aba_clicada");
-        document.getElementById("aba_scores").classList.remove("aba_clicada");
+    function showHideAba(showAba,hideAba_1,hideAba_2){
+        document.getElementById(showAba).classList.add("aba_clicada");   
+        document.getElementById(hideAba_1).classList.remove("aba_clicada");
+        document.getElementById(hideAba_2).classList.remove("aba_clicada");
     }
 
     return(
         <div className="wrapper_menus">
             <Cabecalho name={name}>
             </Cabecalho>
-            {/* <div className="cabecalho"></div>
-            <p className='boasVindas'>Bem vindo, {name}</p>
-            <button className="botao_padrao sair" onClick={sair}>Sair</button> */}
             <div className="abas">
-                {/* <button className="aba_clicada aba" onClick={()=>navigate("/menus/status")}>Status</button>
-                <button className="aba" onClick={()=>navigate("/menus/scores")}>Scores</button> */}
                 <button id="aba_status" className="aba_clicada aba" onClick={showStatus}>Status</button>
                 <button id="aba_scores" className="aba" onClick={showScores}>Scores</button>
                 <button id="aba_ranking" className="aba" onClick={showRanking}>Ranking</button>
