@@ -3,13 +3,10 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import './status.css';
 import Cabecalho from '../../Component/Cabecalho/Cabecalho';
-import ListItem from '../scores/ListItem';
-import ListRankItem from '../ranking/ListRankItem';
 import DadosStatus from '../../Component/dadosStatus/DadosStatus';
 import DadosScores from '../../Component/dadosScores/DadosScores';
 import getUrl from '../../data/data';
-
-// const url = "http://192.168.8.4"; // IPV4
+import DadosRanking from '../../Component/dadosRanking/DadosRanking';
 
 function Status(){
     const navigate = useNavigate();
@@ -17,68 +14,11 @@ function Status(){
     const [stars, setStar] = useState([]);
     const [life, setLife] = useState([]);
     const [money, setmoney] = useState([]);
-    const [scores, setScores] = useState([]);
-    const [ranking, setRanking] = useState([]);
 
     useEffect(
         atualizaStatus, // <- function that will run on every dependency update
         []
     )
-
-    useEffect(
-        atualizaScores, // <- function that will run on every dependency update
-        [] // <-- empty dependency array
-    ) 
-
-    useEffect(
-        atualizaRanking, // <- function that will run on every dependency update
-        [] // <-- empty dependency array
-    ) 
-
-    function atualizaRanking(){
-        console.log("ATT RANK");
-        axios.get(`${getUrl()}/backend_drag_n_drop/api/progress/getranking/`,
-        {
-            headers:{
-            'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
-            }
-        })
-            .then(function (response) {
-                console.log(response.data.data);
-                let vetorRanking= [];
-                response.data.data.forEach((value,index) => {
-                    vetorRanking.push({id: index, position:value.id, name:value.name, stars:value.stars})
-                });
-                console.log(vetorRanking);
-                setRanking(vetorRanking);
-            }).catch(function (error) {
-            console.log(error);
-            navigate("/");
-            });
-        }
-
-    function atualizaScores(){
-        console.log("ATT SCORES");
-        console.log("ATT RANK");
-        axios.get(`${getUrl()}/backend_drag_n_drop/api/scores/getscores/`,
-        {
-            headers:{
-            'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
-            }
-        })
-            .then(function (response) {
-                // console.log(response.data.data);
-                let vetorEstrelas= [];
-                response.data.data.forEach((value,index) => {
-                    vetorEstrelas.push({id: index, score:value.score})
-                });
-                console.log(vetorEstrelas);
-                setScores(vetorEstrelas);
-            }).catch(function (error) {
-                console.log(error);
-                sair();
-            });
-        }
 
     function atualizaStatus(){
         console.log("ATT STATUS");
@@ -98,11 +38,6 @@ function Status(){
         console.log(error);
         navigate("/");
         });
-    }
-
-    function sair(){
-        localStorage.removeItem('tokenDragnDrop');
-        navigate("/")
     }
 
     function showStatus(){     
@@ -146,81 +81,29 @@ function Status(){
 
     return(
         <div className="wrapper_menus">
-            <Cabecalho name={name}>
-            </Cabecalho>
+            <Cabecalho 
+                name={name}
+            />
             <div className="abas">
                 <button id="aba_status" className="aba_clicada aba" onClick={showStatus}>Status</button>
                 <button id="aba_scores" className="aba" onClick={showScores}>Scores</button>
                 <button id="aba_ranking" className="aba" onClick={showRanking}>Ranking</button>
             </div>
-            {/* <div id="status" className="corpo_status">
-                <h1>Status</h1>
-                <img className="heroi img_logo" src={require('../../assets/character.png')} alt=""/>
-                <div className="dados">
-                    <ul>
-                        <li>
-                            <div></div>
-                            <div><h1>{stars}</h1></div>
-                            <img className="logo img_logo" src={require('../../assets/estrela.png')} alt=""/>
-                        </li>
-                        <li>
-                            <div></div>
-                            <div><h1>{life}</h1></div>
-                            <img className="logo img_logo" src={require('../../assets/coracao.png')} alt=""/>
-                        </li><li>
-                            <div></div>
-                            <div><h1>{money}</h1></div>
-                            <img className="logo img_logo" src={require('../../assets/money.png')} alt=""/>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div> */}
             <DadosStatus
-            stars={stars}
-            life={life}
-            money={money}
+                stars={stars}
+                life={life}
+                money={money}
             />
-            {/* <div id="scores" className=" esconde">
-                <h1>Scores</h1>
-                <button className="logar sair" onClick={atualizaScores}>Refresh</button>
-                <div className="dados_scores">
-                    {scores.length ?
-                    <ul>
-                    {
-                    scores.map(({id,score}) => (
-                        <ListItem 
-                        key={id}
-                        estrelas={score}
-                        />
-                        ))
-                    }                        
-                    </ul> : <h1>Você ainda não possui nenhum score </h1>
-                    }
-                </div>
-            </div> */}
             <DadosScores
-            id={scores.id}
-            score={scores.score}
+                // id={scores.id}
+                // score={scores.score}
             />
-            <div id="ranking" className="esconde">
-                <h1>Ranking</h1>
-                <button className="logar sair" onClick={atualizaRanking}>Refresh</button>
-                <div className="dados_Ranking">
-                    <ul>
-                        {
-                        ranking.map(({id,position,name,stars}) => (
-                            <ListRankItem 
-                            key={id}
-                            position={id+1}
-                            name={name}
-                            stars={stars}
-                            />
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
+            <DadosRanking
+                // id={ranking.id}
+                // position={ranking.position}
+                // name={ranking.name}
+                // stars={ranking.stars}
+            />
         </div>
     )
 }

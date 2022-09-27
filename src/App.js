@@ -3,9 +3,6 @@ import Home from './home';
 import Login from './login/login';
 import Cadastro from './cadastro/cadastro';
 import Status from './Menu/status/status';
-import Scores from './Menu/scores/scores';
-import Ranking from './Menu/ranking/ranking';
-
 import {PrivateRoute} from './routes/privateRoutes';
 
 function App() {
@@ -16,8 +13,8 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/cadastro" element={<Cadastro/>}/>
         <Route path="/menus/status" element={<PrivateRoute><Status/></PrivateRoute>}/>
-        <Route path="/menus/scores" element={<PrivateRoute><Scores/></PrivateRoute>}/>
-        <Route path="/menus/ranking" element={<PrivateRoute><Ranking/></PrivateRoute>}/>
+        {/* <Route path="/menus/scores" element={<PrivateRoute><Scores/></PrivateRoute>}/>
+        <Route path="/menus/ranking" element={<PrivateRoute><Ranking/></PrivateRoute>}/> */}
         <Route path="*" element={<Home/>}/>
       </Routes>
     </Router>

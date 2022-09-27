@@ -1,6 +1,4 @@
 import React from 'react';
-// import ListItem from '../scores/ListItem';
-// import ListRankItem from '../ranking/ListRankItem';
 
 function DadosStatus({ stars,life,money }){
     return(

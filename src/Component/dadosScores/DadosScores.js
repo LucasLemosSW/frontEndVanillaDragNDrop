@@ -1,14 +1,12 @@
 import React,{useState,useEffect} from 'react';
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
-import ListItem from '../../Menu/scores/ListItem';
+import ListItem from './ListItem';
 import getUrl from '../../data/data'
+import './scores.css'
+import {Sair} from '../functions/functions'
 
-// import ListRankItem from '../ranking/ListRankItem';
+function DadosScores(){
 
-function DadosScores({ id,score }){
-
-    const navigate = useNavigate();
     const [scores, setScores] = useState([]);
 
     useEffect(
@@ -35,13 +33,8 @@ function DadosScores({ id,score }){
                 setScores(vetorEstrelas);
             }).catch(function (error) {
                 console.log(error);
-                sair();
+                Sair();
             });
-        }
-
-        function sair(){
-            localStorage.removeItem('tokenDragnDrop');
-            navigate("/")
         }
 
     return(
