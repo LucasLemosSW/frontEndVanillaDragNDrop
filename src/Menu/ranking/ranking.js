@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import ListRankItem from './ListRankItem'
 import axios from 'axios';
 import './ranking.css';
-import Cabecalho from '../../Component/Cabecalho';
+import Cabecalho from '../../Component/Cabecalho/Cabecalho';
 
 function Ranking(){
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Ranking(){
     ) 
 
     function atualizaRanking(){
-        axios.get('http://192.168.8.4/backend_drag_n_drop/api/progress/getranking/',
+        axios.get('http://172.17.5.221/backend_drag_n_drop/api/progress/getranking/',
         {
             headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),

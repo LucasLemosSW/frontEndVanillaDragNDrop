@@ -2,9 +2,14 @@ import React,{useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import './status.css';
-import Cabecalho from '../../Component/Cabecalho';
+import Cabecalho from '../../Component/Cabecalho/Cabecalho';
 import ListItem from '../scores/ListItem';
 import ListRankItem from '../ranking/ListRankItem';
+import DadosStatus from '../../Component/dadosStatus/DadosStatus';
+import DadosScores from '../../Component/dadosScores/DadosScores';
+import getUrl from '../../data/data';
+
+// const url = "http://192.168.8.4"; // IPV4
 
 function Status(){
     const navigate = useNavigate();
@@ -32,7 +37,7 @@ function Status(){
 
     function atualizaRanking(){
         console.log("ATT RANK");
-        axios.get('http://192.168.8.4/backend_drag_n_drop/api/progress/getranking/',
+        axios.get(`${getUrl()}/backend_drag_n_drop/api/progress/getranking/`,
         {
             headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
@@ -55,7 +60,7 @@ function Status(){
     function atualizaScores(){
         console.log("ATT SCORES");
         console.log("ATT RANK");
-        axios.get('http://192.168.8.4/backend_drag_n_drop/api/scores/getscores/',
+        axios.get(`${getUrl()}/backend_drag_n_drop/api/scores/getscores/`,
         {
             headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
@@ -77,7 +82,7 @@ function Status(){
 
     function atualizaStatus(){
         console.log("ATT STATUS");
-        axios.get('http://192.168.8.4/backend_drag_n_drop/api/progress/getprogress/',
+        axios.get(`${getUrl()}/backend_drag_n_drop/api/progress/getprogress/`,
         {
             headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
@@ -148,7 +153,7 @@ function Status(){
                 <button id="aba_scores" className="aba" onClick={showScores}>Scores</button>
                 <button id="aba_ranking" className="aba" onClick={showRanking}>Ranking</button>
             </div>
-            <div id="status" className="corpo_status">
+            {/* <div id="status" className="corpo_status">
                 <h1>Status</h1>
                 <img className="heroi img_logo" src={require('../../assets/character.png')} alt=""/>
                 <div className="dados">
@@ -170,8 +175,13 @@ function Status(){
                         
                     </ul>
                 </div>
-            </div>
-            <div id="scores" className=" esconde">
+            </div> */}
+            <DadosStatus
+            stars={stars}
+            life={life}
+            money={money}
+            />
+            {/* <div id="scores" className=" esconde">
                 <h1>Scores</h1>
                 <button className="logar sair" onClick={atualizaScores}>Refresh</button>
                 <div className="dados_scores">
@@ -188,7 +198,11 @@ function Status(){
                     </ul> : <h1>Você ainda não possui nenhum score </h1>
                     }
                 </div>
-            </div>
+            </div> */}
+            <DadosScores
+            id={scores.id}
+            score={scores.score}
+            />
             <div id="ranking" className="esconde">
                 <h1>Ranking</h1>
                 <button className="logar sair" onClick={atualizaRanking}>Refresh</button>

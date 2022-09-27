@@ -1,22 +1,25 @@
 import React,{useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
-import './scores.css';
-import ListItem from './ListItem';
-import Cabecalho from '../../Component/Cabecalho/Cabecalho';
+import ListItem from '../../Menu/scores/ListItem';
+import getUrl from '../../data/data'
 
-function Scores(){
+// import ListRankItem from '../ranking/ListRankItem';
+
+function DadosScores({ id,score }){
 
     const navigate = useNavigate();
     const [scores, setScores] = useState([]);
 
     useEffect(
-        atualiza, // <- function that will run on every dependency update
+        atualizaScores, // <- function that will run on every dependency update
         [] // <-- empty dependency array
     ) 
 
-    function atualiza(){
-        axios.get('http://172.17.5.221/backend_drag_n_drop/api/scores/getscores/',
+    function atualizaScores(){
+        console.log("ATT SCORES");
+        console.log("ATT RANK");
+        axios.get(`${getUrl()}/backend_drag_n_drop/api/scores/getscores/`,
         {
             headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('tokenDragnDrop'),
@@ -36,25 +39,15 @@ function Scores(){
             });
         }
 
-    function sair(){
-        localStorage.removeItem('tokenDragnDrop');
-        navigate("/")
-    }
+        function sair(){
+            localStorage.removeItem('tokenDragnDrop');
+            navigate("/")
+        }
 
     return(
-        <div className="wrapper_menus">
-            <Cabecalho name={"name"}>
-            </Cabecalho>
-            {/* <div className="cabecalho"></div>
-            <button className="logar sair" onClick={sair}>Sair</button> */}
-            <div className="abas">
-                <button className="aba" onClick={()=>navigate("/menus/status")}>Status</button>
-                <button className="aba_clicada aba" onClick={()=>navigate("/menus/scores")}>Scores</button>
-                <button className="aba" onClick={()=>navigate("/menus/ranking")}>Ranking</button>
-            </div>
-            <div className="corpo_scores">
+        <div id="scores" className=" esconde">
                 <h1>Scores</h1>
-                <button className="logar sair" onClick={atualiza}>Refresh</button>
+                <button className="logar sair" onClick={atualizaScores}>Refresh</button>
                 <div className="dados_scores">
                     {scores.length ?
                     <ul>
@@ -70,8 +63,8 @@ function Scores(){
                     }
                 </div>
             </div>
-        </div>
-    )
+        
+    );
 }
 
-export default Scores;
+export default DadosScores;

@@ -150,6 +150,7 @@
       }
 
       .logo_login{
+        cursor: pointer;
         max-width: 80%;
         max-height: 80%;
         width: auto;

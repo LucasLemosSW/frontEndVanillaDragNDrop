@@ -18,6 +18,7 @@ function App() {
         <Route path="/menus/status" element={<PrivateRoute><Status/></PrivateRoute>}/>
         <Route path="/menus/scores" element={<PrivateRoute><Scores/></PrivateRoute>}/>
         <Route path="/menus/ranking" element={<PrivateRoute><Ranking/></PrivateRoute>}/>
+        <Route path="*" element={<Home/>}/>
       </Routes>
     </Router>
   );

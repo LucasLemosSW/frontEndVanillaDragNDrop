@@ -1,6 +1,6 @@
 import React from 'react';
 import './Cabecalho.css';
-import '../Menu/status/status';
+import '../../Menu/status/status';
 import {useNavigate} from 'react-router-dom'
 import './Cabecalho.css'
 

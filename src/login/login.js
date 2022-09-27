@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react';
 import {NavLink,useNavigate,useLocation } from 'react-router-dom'
 import axios from 'axios';
 import './login.css';
+import getUrl from '../data/data.js'
+
+// const url = "http://192.168.8.4"; // IPV4
 
 function Login(props){
 
@@ -16,8 +19,18 @@ function Login(props){
         }
     }
 
+    function verificaToken(){
+        if(localStorage.getItem("tokenDragnDrop"))
+            navigate("/menus/status"); 
+    }
+
     useEffect(
         escreveMsg, // <- function that will run on every dependency update
+        [] // <-- empty dependency array
+    )
+
+    useEffect(
+        verificaToken, // <- function that will run on every dependency update
         [] // <-- empty dependency array
     )
 
@@ -42,7 +55,7 @@ function Login(props){
             passwordUsuario: e.target.elements.password.value,
         }
 
-        axios.post('http://192.168.8.4/backend_drag_n_drop/api/AuthController/login/', {
+        axios.post(`${getUrl()}/backend_drag_n_drop/api/AuthController/login/`, {
             email: data.emailUsuario,
             password: data.passwordUsuario
             })
@@ -58,8 +71,10 @@ function Login(props){
                     console.log(response.data);
             }  
             }).catch(function (error) {
+            console.log("AQUI");
             console.log(error);
-            navigate("/");
+            setMensage(error.message);
+            // navigate("/");
             });
         }
 
